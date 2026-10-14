@@ -15,7 +15,7 @@ async def seed(session, *prices: IndexPrice) -> None:
     await session.flush()
     session.expunge_all() 
 
-async def test_latest_returns_record_with_max_timestamp(session, repository):
+async def test_latest_returns_record_with_max_timestamp(session, repository: IndexPriceRepository):
     await seed(
         session,
         make_price(BTC, 100, "1"),
